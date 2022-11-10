@@ -15,18 +15,21 @@ class _LoginPageState extends State<LoginPage> {
   bool changeButton = false;
   final _formKey = GlobalKey<FormState>();
   moveToHome(BuildContext context) async {
-    setState(() {
-      changeButton = true;
-    });
-    await Future.delayed(Duration(seconds: 1));
-    // ignore: use_build_context_synchronously
-    await Navigator.pushNamed(context, MyRoutes.homeRoute);
-    setState(() {
-      changeButton = false;
-    });
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        changeButton = true;
+      });
+      await Future.delayed(Duration(seconds: 1));
+      // ignore: use_build_context_synchronously
+      await Navigator.pushNamed(context, MyRoutes.homeRoute);
+      setState(() {
+        changeButton = false;
+      });
+    }
   }
 
   @override
+  // ignore: unused_element
   Widget build(BuildContext context) {
     return Material(
       color: Colors.white,
@@ -43,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 20.0,
               ),
               Text(
-                "Welcome $name",
+                "Welcome $name !",
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
@@ -59,6 +62,12 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: "Enter Username",
                       labelText: "Username",
                     ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Username cannot be empty";
+                      }
+                      return null;
+                    },
                     onChanged: (value) {
                       name = value;
                       setState(() {});
@@ -70,6 +79,14 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: "Enter Password",
                       labelText: "password",
                     ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Password cannot be empty";
+                      } else if (value.length < 6) {
+                        return "Password length must be greater than 6";
+                      }
+                      return null;
+                    },
                   ),
                   SizedBox(height: 20.0),
                   Material(
