@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         // ignore: prefer_const_constructors
-        title: Text("Skiome"),
+        title: Text("Skiome", style: TextStyle(color: Colors.black)),
       ),
       body: Center(
         // ignore: avoid_unnecessary_containers

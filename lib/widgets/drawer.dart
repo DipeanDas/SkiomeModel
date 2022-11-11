@@ -8,7 +8,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_declarations
-    final imageUrl = "assets/images/PC account profile photo.jpg";
+    final image = "assets/images/PC account profile photo.jpg";
     return Drawer(
       child: Container(
         color: Colors.deepPurple,
@@ -33,13 +33,12 @@ class MyDrawer extends StatelessWidget {
                   ),
                 ),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: AssetImage(imageUrl),
+                  backgroundImage: AssetImage(image),
                 ),
               ),
             ),
             ListTile(
-              leading: Icon(CupertinoIcons.home, 
-              color: Colors.white),
+              leading: Icon(CupertinoIcons.home, color: Colors.white),
               title: Text(
                 "Home",
                 textScaleFactor: 1.2,
@@ -50,8 +49,7 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading:
-                  Icon(CupertinoIcons.profile_circled,
-                  color: Colors.white),
+                  Icon(CupertinoIcons.profile_circled, color: Colors.white),
               title: Text(
                 "Profile",
                 textScaleFactor: 1.2,
@@ -61,10 +59,51 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(CupertinoIcons.mail,
-              color: Colors.white),
+              leading: Icon(CupertinoIcons.mail, color: Colors.white),
               title: Text(
                 "Email Me",
+                textScaleFactor: 1.2,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(CupertinoIcons.chat_bubble_text_fill,
+                  color: Colors.white),
+              title: Text(
+                "Notifications",
+                textScaleFactor: 1.2,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(CupertinoIcons.share, color: Colors.white),
+              title: Text(
+                "Share",
+                textScaleFactor: 1.2,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(CupertinoIcons.settings, color: Colors.white),
+              title: Text(
+                "Settings",
+                textScaleFactor: 1.2,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(CupertinoIcons.square_arrow_right_fill,
+                  color: Colors.white),
+              title: Text(
+                "Logout",
                 textScaleFactor: 1.2,
                 style: TextStyle(
                   color: Colors.white,
