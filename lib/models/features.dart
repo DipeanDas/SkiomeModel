@@ -1,23 +1,8 @@
+import 'dart:convert';
+
 class Featuremodel {
   // ignore: non_constant_identifier_names
-  static final Topfeatures = [
-    features(
-      id: "Skiome001",
-      name: "3DObjects",
-      desc: "All types of 3D models",
-      price: 20,
-      color: "0fff5055f",
-      image: "assets/images/3Dobjects_image.jpg",
-    ),
-    features(
-      id: "Skiome002",
-      name: "Experiments",
-      desc: "Creative Experiments",
-      price: 2000,
-      color: "0fff5055f",
-      image: "assets/images/experiments_image.jpg",
-    )
-  ];
+  static List<features> Topfeatures = [];
 }
 
 // ignore_for_file: public_member_api_docs, sort_constructors_first
@@ -38,4 +23,76 @@ class features {
     required this.color,
     required this.image,
   });
+
+  features copyWith({
+    String? id,
+    String? name,
+    String? desc,
+    num? price,
+    String? color,
+    String? image,
+  }) {
+    return features(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      desc: desc ?? this.desc,
+      price: price ?? this.price,
+      color: color ?? this.color,
+      image: image ?? this.image,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'id': id,
+      'name': name,
+      'desc': desc,
+      'price': price,
+      'color': color,
+      'image': image,
+    };
+  }
+
+  factory features.fromMap(Map<String, dynamic> map) {
+    return features(
+      id: map['id'] as String,
+      name: map['name'] as String,
+      desc: map['desc'] as String,
+      price: map['price'] as num,
+      color: map['color'] as String,
+      image: map['image'] as String,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory features.fromJson(String source) =>
+      features.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  @override
+  String toString() {
+    return 'features(id: $id, name: $name, desc: $desc, price: $price, color: $color, image: $image)';
+  }
+
+  @override
+  bool operator ==(covariant features other) {
+    if (identical(this, other)) return true;
+
+    return other.id == id &&
+        other.name == name &&
+        other.desc == desc &&
+        other.price == price &&
+        other.color == color &&
+        other.image == image;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        name.hashCode ^
+        desc.hashCode ^
+        price.hashCode ^
+        color.hashCode ^
+        image.hashCode;
+  }
 }

@@ -18,7 +18,7 @@ class FeatureWidget extends StatelessWidget {
       height: 100,
       child: Card(
         color: Color.fromARGB(255, 219, 168, 224),
-        shape: StadiumBorder(),
+        shape:StadiumBorder(),
         child: ListTile(
           onTap: (() {
             print("${Topfeatures.name} pressed");
