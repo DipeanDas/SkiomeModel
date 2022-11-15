@@ -1,13 +1,10 @@
 import 'dart:convert';
 
-class Featuremodel {
-  // ignore: non_constant_identifier_names
-  static List<features> Topfeatures = [];
+class CatalogModel {
+  static List<Item> items = [];
 }
 
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-// ignore: camel_case_types
-class features {
+class Item {
   final String id;
   final String name;
   final String desc;
@@ -15,7 +12,7 @@ class features {
   final String color;
   final String image;
 
-  features({
+  Item({
     required this.id,
     required this.name,
     required this.desc,
@@ -24,7 +21,7 @@ class features {
     required this.image,
   });
 
-  features copyWith({
+  Item copyWith({
     String? id,
     String? name,
     String? desc,
@@ -32,7 +29,7 @@ class features {
     String? color,
     String? image,
   }) {
-    return features(
+    return Item(
       id: id ?? this.id,
       name: name ?? this.name,
       desc: desc ?? this.desc,
@@ -53,37 +50,37 @@ class features {
     };
   }
 
-  factory features.fromMap(Map<String, dynamic> map) {
-    return features(
-      id: map['id'] as String,
-      name: map['name'] as String,
-      desc: map['desc'] as String,
-      price: map['price'] as num,
-      color: map['color'] as String,
-      image: map['image'] as String,
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+      id: map['id'],
+      name: map['name'],
+      desc: map['desc'],
+      price: map['price'],
+      color: map['color'],
+      image: map['image'],
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory features.fromJson(String source) =>
-      features.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Item.fromJson(String source) => Item.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'features(id: $id, name: $name, desc: $desc, price: $price, color: $color, image: $image)';
+    return 'Item(id: $id, name: $name, desc: $desc, price: $price, color: $color, image: $image)';
   }
 
   @override
-  bool operator ==(covariant features other) {
-    if (identical(this, other)) return true;
+  bool operator ==(Object o) {
+    if (identical(this, o)) return true;
 
-    return other.id == id &&
-        other.name == name &&
-        other.desc == desc &&
-        other.price == price &&
-        other.color == color &&
-        other.image == image;
+    return o is Item &&
+        o.id == id &&
+        o.name == name &&
+        o.desc == desc &&
+        o.price == price &&
+        o.color == color &&
+        o.image == image;
   }
 
   @override

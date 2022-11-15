@@ -1,0 +1,44 @@
+{
+  "products": [
+      {
+          "id": "Skiome001",
+          "name": "3DObjects",
+          "desc": "All types of 3D models",
+          "price": 200,
+          "color": "0fff5055f",
+          "image": "https://www.crushpixel.com/static14/preview2/stock-photo-isometric-logo-design-cube-or-block-set-mathematical-object-with-threedimensional-effect-stock-vector-illustration-isolated-on-white-background-1631020.jpg"
+      },
+      {
+          "id": "Skiome002",
+          "name": "Experiments",
+          "desc": "Creative Experiments",
+          "price": 150,
+          "color": "0fff5055f",
+          "image": "https://image.shutterstock.com/image-vector/cute-funny-logo-experiment-store-600w-1464537578.jpg"
+      },
+      {
+          "id": "Skiome003",
+          "name": "AR/VR",
+          "desc": "Augmented or Virtual Reality",
+          "price": 600,
+          "color": "0fff5055f",
+          "image": "https://img.freepik.com/premium-vector/metaverse-digital-cyber-virtual-world-concept-man-holding-virtual-reality-glasses_4974-261.jpg?w=2000"
+      },
+      {
+          "id": "Skiome004",
+          "name": "Simulation",
+          "desc": "Experiment simulators",
+          "price": 500,
+          "color": "0fff5055f",
+          "image": "https://thumbs.dreamstime.com/b/simulation-isolated-icon-simple-element-illustration-programming-concept-icons-editable-logo-sign-symbol-design-white-142291466.jpg"
+      },
+      {
+          "id": "Skiome005",
+          "name": "Courses",
+          "desc": "All Skiome Courses",
+          "price": 200,
+          "color": "0fff5055f",
+          "image": "https://static.vecteezy.com/system/resources/previews/004/263/549/original/education-logo-open-book-dictionary-textbook-or-notebook-with-graduation-hat-icon-modern-emblem-idea-concept-design-for-business-libraries-schools-universities-educational-courses-free-vector.jpg"
+      }
+  ]
+}

@@ -2,19 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_prac1/widgets/drawer.dart';
-
-import '../models/features.dart';
-import '../widgets/feature_widget.dart';
-// import 'package:flutter/services.dart';
 import 'dart:convert';
 
-class HomePage extends StatefulWidget {
-  // ignore: prefer_const_constructors_in_immutables
-  HomePage({super.key});
+import 'package:flutter_application_prac1/models/catalog.dart';
+import 'package:flutter_application_prac1/widgets/drawer.dart';
+import 'package:flutter_application_prac1/widgets/item_widget.dart';
 
+class HomePage extends StatefulWidget {
   @override
-  State<HomePage> createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
@@ -26,13 +22,12 @@ class _HomePageState extends State<HomePage> {
 
   loadData() async {
     await Future.delayed(Duration(seconds: 2));
-    final featurejson =
-        await rootBundle.loadString("assets/files/Features.json");
-    final decodedData = jsonDecode(featurejson);
-    var featureData = decodedData["Sfeatures"];
-    Featuremodel.Topfeatures = List.from(featureData)
-        // ignore: avoid_types_as_parameter_names
-        .map<features>((Topfeatures) => features.fromMap(Topfeatures))
+    final catalogJson =
+        await rootBundle.loadString("assets/files/catalog.json");
+    final decodedData = jsonDecode(catalogJson);
+    var productsData = decodedData["products"];
+    CatalogModel.items = List.from(productsData)
+        .map<Item>((item) => Item.fromMap(item))
         .toList();
     setState(() {});
   }
@@ -45,15 +40,43 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: (Featuremodel.Topfeatures != null &&
-                Featuremodel.Topfeatures.isNotEmpty)
-            ? ListView.builder(
-                itemCount: Featuremodel.Topfeatures.length,
+        child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+            ? GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 16,
+                ),
                 itemBuilder: ((context, index) {
-                  return FeatureWidget(
-                    Topfeatures: Featuremodel.Topfeatures[index],
-                  );
-                }))
+                  final item = CatalogModel.items[index];
+                  return Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: GridTile(
+                        header: Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.deepPurple,
+                          ),
+                          child: Text(item.name,
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                        footer: Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                          ),
+                          child: Text(item.price.toString(),
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                        child: Image.network(
+                          item.image,
+                        ),
+                      ));
+                }),
+                itemCount: CatalogModel.items.length,
+              )
             : Center(
                 child: CircularProgressIndicator(),
               ),
