@@ -1,7 +1,7 @@
 {
   "products": [
       {
-          "id": 1,
+          "id": "skiome1",
           "name": "3DObjects",
           "desc": "All types of 3D models",
           "price": 200,
@@ -9,7 +9,7 @@
           "image": "https://www.crushpixel.com/static14/preview2/stock-photo-isometric-logo-design-cube-or-block-set-mathematical-object-with-threedimensional-effect-stock-vector-illustration-isolated-on-white-background-1631020.jpg"
       },
       {
-          "id": 2,
+          "id": "skiome2",
           "name": "Experiments",
           "desc": "Creative Experiments",
           "price": 150,
@@ -17,7 +17,7 @@
           "image": "https://image.shutterstock.com/image-vector/cute-funny-logo-experiment-store-600w-1464537578.jpg"
       },
       {
-          "id": 3,
+          "id": "skiome3",
           "name": "AR/VR",
           "desc": "Augmented or Virtual Reality",
           "price": 600,
@@ -25,7 +25,7 @@
           "image": "https://img.freepik.com/premium-vector/metaverse-digital-cyber-virtual-world-concept-man-holding-virtual-reality-glasses_4974-261.jpg?w=2000"
       },
       {
-          "id": 4,
+          "id": "skiome4",
           "name": "Simulation",
           "desc": "Experiment simulators",
           "price": 500,
@@ -33,7 +33,7 @@
           "image": "https://thumbs.dreamstime.com/b/simulation-isolated-icon-simple-element-illustration-programming-concept-icons-editable-logo-sign-symbol-design-white-142291466.jpg"
       },
       {
-          "id": 5,
+          "id": "skiome5",
           "name": "Courses",
           "desc": "All Skiome Courses",
           "price": 200,

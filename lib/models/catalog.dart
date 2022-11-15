@@ -1,17 +1,21 @@
 import 'dart:convert';
 
 class CatalogModel {
+  static final catModel = CatalogModel._internal();
+  CatalogModel._internal();
+  factory CatalogModel() => catModel;
+
   static List<Item> items = [];
 
   //get item by id
-   Item getById(int id) =>
+  Item getById(String id) =>
       items.firstWhere((element) => element.id == id, orElse: null);
   //Get item by position
   Item getByPosition(int pos) => items[pos];
 }
 
 class Item {
-  final int id;
+  final String id;
   final String name;
   final String desc;
   final num price;
@@ -28,7 +32,7 @@ class Item {
   });
 
   Item copyWith({
-    int? id,
+    String? id,
     String? name,
     String? desc,
     num? price,
