@@ -4,6 +4,7 @@ import 'package:flutter_application_prac1/widgets/theme.dart';
 
 // ignore: unused_import
 import 'package:google_fonts/google_fonts.dart';
+import 'Pages/cart_page.dart';
 import 'Pages/home_page.dart';
 import 'Pages/login_page.dart';
 
@@ -19,15 +20,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return MaterialApp(
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
-      initialRoute: MyRoutes.homeRoute,
+      initialRoute: MyRoutes.loginRoute,
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.cartRoute: (context) => CartPage(),
       },
     );
   }

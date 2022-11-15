@@ -8,8 +8,9 @@ class CatalogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "Skiome Features".text.xl4.bold.color(MyTheme.blackColor).make(),
-        "Popular Services".text.xl2.make(),
+        // ignore: deprecated_member_use
+        "Skiome Features".text.xl4.bold.color(context.theme.accentColor).make(),
+        "Popular Services".text.color(MyTheme.lightgreyColor).xl2.make(),
       ],
     );
   }

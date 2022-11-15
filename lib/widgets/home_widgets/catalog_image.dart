@@ -3,7 +3,6 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../theme.dart';
 
-
 class CatalogImage extends StatelessWidget {
   final String image;
 
@@ -12,7 +11,7 @@ class CatalogImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.network(
       image,
-    ).box.roundedLg.p8.color(MyTheme.creamColor).make().p16().w40(
+    ).box.roundedLg.p8.color(context.canvasColor).make().p16().w40(
           context,
         );
   }
