@@ -1,7 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_prac1/widgets/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../models/catalog.dart';
@@ -26,18 +25,21 @@ class HomeDetailPage extends StatelessWidget {
           buttonPadding: EdgeInsets.zero,
           children: [
             "\$${catalog.price}".text.bold.xl4.red800.make(),
-            AddToCart(catalog:catalog,).wh(130, 50),
+            AddToCart(
+              catalog: catalog,
+            ).wh(130, 50),
           ],
         ).p32(),
       ),
       body: SafeArea(
-        bottom: false,
+        //bottom: false,
         child: Column(
           children: [
             Hero(
                     tag: Key(catalog.id.toString()),
                     child: Image.network(catalog.image))
-                .h32(context),
+                .h32(context)
+                .p16(),
             Expanded(
               child: VxArc(
                 height: 30.0,
@@ -46,24 +48,26 @@ class HomeDetailPage extends StatelessWidget {
                 child: Container(
                   color: context.cardColor,
                   width: context.screenWidth,
-                  child: Column(
-                    children: [
-                      catalog.name.text.xl4
-                          .color(context.accentColor)
-                          .bold
-                          .make(),
-                      catalog.desc.text
-                          .textStyle(context.captionStyle)
-                          .xl
-                          .make(),
-                      10.heightBox,
-                      "Sadipscing et stet ipsum dolore gubergren ea amet rebum. Et diam gubergren gubergren et et et invidunt sit et, eirmod clita at lorem sea dolor ipsum erat, erat magna invidunt est dolor ipsum dolor kasd gubergren. Ea sea dolores lorem consetetur lorem amet sadipscing. Sit consetetur lorem magna et magna."
-                          .text
-                          .textStyle(context.captionStyle)
-                          .make()
-                          .p16()
-                    ],
-                  ).py64(),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        catalog.name.text.xl4
+                            .color(context.accentColor)
+                            .bold
+                            .make(),
+                        catalog.desc.text
+                            .textStyle(context.captionStyle)
+                            .xl
+                            .make(),
+                        10.heightBox,
+                        "Sadipscing et stet ipsum dolore gubergren ea amet rebum. Et diam gubergren gubergren et et et invidunt sit et, eirmod clita at lorem sea dolor ipsum erat, erat magna invidunt est dolor ipsum dolor kasd gubergren. Ea sea dolores lorem consetetur lorem amet sadipscing. Sit consetetur lorem magna et magna."
+                            .text
+                            .textStyle(context.captionStyle)
+                            .make()
+                            .p16()
+                      ],
+                    ).py64(),
+                  ),
                 ),
               ),
             )

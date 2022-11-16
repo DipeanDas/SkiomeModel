@@ -11,7 +11,6 @@ import 'package:flutter_application_prac1/models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../utils/routes.dart';
-import '../widgets/theme.dart';
 import '../widgets/home_widgets/catalog_header.dart';
 import '../widgets/home_widgets/catalog_list.dart';
 

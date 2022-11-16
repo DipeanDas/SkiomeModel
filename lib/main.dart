@@ -4,12 +4,16 @@ import 'package:flutter_application_prac1/widgets/theme.dart';
 
 // ignore: unused_import
 import 'package:google_fonts/google_fonts.dart';
+import 'package:velocity_x/velocity_x.dart';
 import 'Pages/cart_page.dart';
 import 'Pages/home_page.dart';
 import 'Pages/login_page.dart';
+import 'core/store.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(VxState(
+    store: MyStore(),
+    child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
